@@ -1,4 +1,4 @@
-const defaultState = ['coffee', 'tea', 'water']
+const defaultState = [{ name: 'coffee' }, { name: 'tea' }, { name: 'water' }]
 
 const ADD_TYPE = 'ADD_TYPE'
 const REMOVE_TYPE = 'REMOVE_TYPE'
