@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addDrinkingAction } from '../store/reducers/drinkingsReducer'
 import { v4 as uuid } from 'uuid'
 import moment from 'moment'
-import glass from '../imgs/medium-glass.svg'
-import SelectVolume from './SelectVolume'
 import Triangle from '../ui/Triangle'
 import SelectWithSearch from '../ui/SelectWithSearch'
 import Select from '../ui/Select'
+import ButtonSmall from '../ui/ButtonSmall'
 
 const AddDrinking = () => {
   const dispatch = useDispatch()
@@ -35,31 +34,21 @@ const AddDrinking = () => {
             <SelectWithSearch selectItems={types} selectedItem={selectedType} changeSelected={setSelectedType} />
             <Select selectItems={volumes} selectedItem={selectedVolume} changeSelected={setSelectedVolume} />
           </div>
-
-          <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
-          <div>
-            <label htmlFor="today">Today</label>
+          <div className="flex gap-3">
+            <div className="flex gap-1">
+              <ButtonSmall action={() => setSelectedDate(moment().format('YYYY-MM-DD'))}>TODAY</ButtonSmall>
+              <ButtonSmall action={() => setSelectedDate(moment().subtract(1, 'days').format('YYYY-MM-DD'))}>
+                YESTERDAY
+              </ButtonSmall>
+            </div>
             <input
-              className="w-0"
-              id="today"
-              type="radio"
-              name="date"
-              value="today"
-              onChange={() => setSelectedDate(moment().format('YYYY-MM-DD'))}
-              checked
-            />
-            <label htmlFor="yesterday">Yesterday</label>
-            <input
-              className="w-0"
-              id="yesterday"
-              type="radio"
-              name="date"
-              value="yesterday"
-              onChange={() => setSelectedDate(moment().subtract(1, 'days').format('YYYY-MM-DD'))}
+              className="grow"
+              type="date"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
             />
           </div>
 
-          <SelectVolume />
           <button
             className="w-full rounded-lg bg-sky-600 py-2 font-semibold text-slate-200 transition-colors duration-100 hover:bg-sky-500 hover:text-slate-50 hover:shadow-md"
             type="submit"

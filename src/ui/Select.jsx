@@ -3,7 +3,7 @@ import { Listbox } from '@headlessui/react'
 
 const Select = ({ selectItems, selectedItem, changeSelected }) => {
   return (
-    <div className="w-1/4">
+    <div className="flex-0 w-16">
       <Listbox value={selectedItem} onChange={changeSelected}>
         <div className="relative">
           <Listbox.Button className="h-full w-full items-center justify-center rounded-lg bg-white px-3 py-2">

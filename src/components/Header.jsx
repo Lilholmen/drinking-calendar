@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = ({ plusAction }) => {
   return (
-    <header className="flex w-full justify-center bg-sky-200 py-2">
+    <header className="flex w-full justify-center bg-sky-200 py-2 shadow-md">
       <button
         className="absolute left-9 flex h-9 w-9 items-center justify-center rounded-full bg-slate-700"
         onClick={plusAction}

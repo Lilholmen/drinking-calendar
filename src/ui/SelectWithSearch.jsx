@@ -12,7 +12,7 @@ const SelectWithSearch = ({ selectItems, selectedItem, changeSelected }) => {
         })
 
   return (
-    <div className="w-3/4">
+    <div className="grow">
       <Combobox value={selectedItem} onChange={changeSelected}>
         <div className="relative">
           <div className="relative">
@@ -41,7 +41,7 @@ const SelectWithSearch = ({ selectItems, selectedItem, changeSelected }) => {
           </div>
           <Combobox.Options className="absolute mt-1 w-full rounded-lg bg-white py-1">
             {filteredItems.map((item) => (
-              <Combobox.Option className="px-4 py-1 hover:bg-sky-300" key={item.name} value={item}>
+              <Combobox.Option className="px-4 py-1 hover:bg-sky-300 hover:text-slate-100" key={item.name} value={item}>
                 {item.name}
               </Combobox.Option>
             ))}
